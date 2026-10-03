@@ -1,3 +1,4 @@
+import HealthKit
 import SwiftUI
 import LibreLoop
 import LoopAlgorithm
@@ -14,7 +15,7 @@ struct LibreLoopSampleDetailView: View {
         List {
             Section(LocalizedString("Reading", comment: "Sample detail section: reading")) {
                 LabeledContent(LocalizedString("Value", comment: "Sample detail: glucose value"), value: displayGlucosePreference.format(
-                    LoopQuantity(unit: .milligramsPerDeciliter, doubleValue: sample.valueMgDL)))
+                    HKQuantity(unit: .milligramsPerDeciliter, doubleValue: sample.valueMgDL)))
                 LabeledContent(LocalizedString("Time", comment: "Sample detail: time"), value: sample.date.formatted(date: .abbreviated, time: .standard))
                 LabeledContent(LocalizedString("Time (relative)", comment: "Sample detail: relative time")) {
                     Text(sample.date, style: .relative)
@@ -23,7 +24,7 @@ struct LibreLoopSampleDetailView: View {
                 LabeledContent(LocalizedString("Trend", comment: "Sample detail: trend"), value: trendLabel)
                 if let rate = sample.rateOfChangeMgDLPerMinute {
                     LabeledContent(LocalizedString("Rate of change", comment: "Sample detail: rate of change"), value: displayGlucosePreference.formatMinuteRate(
-                        LoopQuantity(unit: .milligramsPerDeciliterPerMinute, doubleValue: rate)))
+                        HKQuantity(unit: .milligramsPerDeciliterPerMinute, doubleValue: rate)))
                 } else {
                     LabeledContent(LocalizedString("Rate of change", comment: "Sample detail: rate of change"), value: "—")
                 }
