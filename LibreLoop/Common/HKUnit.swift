@@ -11,10 +11,10 @@ public extension HKUnit {
     /// UI actually surfaces; falls back to `unitString` for anything else.
     var localizedShortUnitString: String {
         if self == .milligramsPerDeciliter {
-            return "mg/dL"
+            return NSLocalizedString("mg/dL", comment: "Short unit string for mg/dL")
         }
         if self == HKUnit.moleUnit(with: .milli, molarMass: HKUnitMolarMassBloodGlucose).unitDivided(by: .liter()) {
-            return "mmol/L"
+            return NSLocalizedString("mmol/L", comment: "Short unit string for mmol/L")
         }
         return unitString
     }

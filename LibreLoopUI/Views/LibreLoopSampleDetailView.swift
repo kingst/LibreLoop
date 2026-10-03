@@ -1,8 +1,8 @@
 import HealthKit
-import SwiftUI
 import LibreLoop
 import LoopAlgorithm
 import LoopKitUI
+import SwiftUI
 
 /// All the diagnostic data we have on one realtime glucose sample,
 /// pushed when the user taps a row in Recent Readings.

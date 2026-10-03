@@ -409,9 +409,12 @@ public final class LibreLoopCGMManager: CGMManager {
         case .warmup, .pairingWarmup: inWarmup = true
         default: inWarmup = false
         }
-        // Trio's LoopKit `CGMManagerStatus` has no `inSensorWarmup` /
-        // `isInoperable`; callers derive warmup from `sensorLifecycle` instead.
+        // loopandlearn's LoopKit doesn't expose `inSensorWarmup` /
+        // `isInoperable`. Trio's home view sniffs warmup from
+        // `localizedMessage`; replacement state is reflected via
+        // `hasValidSensorSession`.
         _ = inWarmup
+        _ = isInoperable
         return CGMManagerStatus(hasValidSensorSession: state.sensorSerial != nil && !state.sensorNeedsReplacement,
                                 lastCommunicationDate: state.latestReadingTimestamp,
                                 device: device)
@@ -762,8 +765,8 @@ public final class LibreLoopCGMManager: CGMManager {
         }
     }
 
-    // AlertResponder. Trio's LoopKit still uses the completion-handler
-    // signature (tidepool-sync's LoopKit replaced it with async/throws).
+    // AlertResponder. Tidepool-sync's LoopKit replaced the completion-handler
+    // signature with async/throws.
     public func acknowledgeAlert(alertIdentifier: Alert.AlertIdentifier, completion: @escaping (Error?) -> Void) {
         completion(nil)
     }

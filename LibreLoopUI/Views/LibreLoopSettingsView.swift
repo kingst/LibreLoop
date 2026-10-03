@@ -1,8 +1,8 @@
 import HealthKit
-import SwiftUI
 import LibreLoop
 import LoopAlgorithm
 import LoopKitUI
+import SwiftUI
 
 struct LibreLoopSettingsView: View {
     @ObservedObject var viewModel: LibreLoopSettingsViewModel
@@ -37,12 +37,13 @@ struct LibreLoopSettingsView: View {
             lastReadingSection
             recentReadingsSection
             debugInfoSection
-            forwardingSection
+            // TEMP: hidden pending per-CGM rework; gate forced in ingest(_:).
+            // forwardingSection
             developerSection
             activitySection
             deleteSection
         }
-        .navigationTitle("FreeStyle Libre 3")
+        .navigationTitle(LocalizedString("FreeStyle Libre 3 / 3+", comment: "Settings screen title"))
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             ToolbarItem(placement: .confirmationAction) {

@@ -35,6 +35,12 @@
     "Loop is having trouble communicating with your FreeStyle Libre 3 sensor. CGM readings may pause briefly and should resume automatically. No action is needed unless this keeps happening." : {
       "comment" : "Sensor check alert body (transient transmission error)"
     },
+    "mg/dL" : {
+      "comment" : "Short unit string for mg/dL"
+    },
+    "mmol/L" : {
+      "comment" : "Short unit string for mmol/L"
+    },
     "No sensor" : {
       "comment" : "Sensor lifecycle: no sensor paired",
       "extractionState" : "manual"
