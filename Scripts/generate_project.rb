@@ -170,7 +170,7 @@ rwdk_pkg = proj.new(Xcodeproj::Project::Object::XCRemoteSwiftPackageReference)
 rwdk_pkg.repositoryURL = 'https://github.com/airedev326/RoundWhiteDiscKit.git'
 rwdk_pkg.requirement = {
   'kind' => 'revision',
-  'revision' => 'f5be7c7903d84967d728933a869465a1cae0f6be',
+  'revision' => 'e4092162bc051a168f0a209288c6903b655d2e6a',
 }
 proj.root_object.package_references << rwdk_pkg
 
